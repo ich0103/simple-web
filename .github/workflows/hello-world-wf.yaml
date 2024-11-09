@@ -1,8 +1,9 @@
 name: first-workflow
 on: [push]
+
 jobs:
   shell-cmd-job:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: echo Hello
         run: echo "Hello World"
@@ -14,4 +15,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: show software version
-        run: sw-vers
+        run: sw_vers
+  dependant-job:
+    runs-on: windows-latest
+    needs: shell-cmd-job
+    steps:
+      - name: echo a string
+        run: Write-Output "Windows String"
+      - name: Error Step
+        run: doesnotexit
