@@ -1,0 +1,11 @@
+name: practice-workflow
+on: [push, pull_request]
+
+jobs:
+  test-inchon:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: echo python version
+        run: |
+          python --version
+          pip --version
