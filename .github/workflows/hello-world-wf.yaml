@@ -1,26 +1,38 @@
-name: first-workflow
-on: [push]
+name: practice-workflow
+on: [push, pull-request]
 
 jobs:
-  shell-cmd-job:
-    runs-on: ubuntu-latest
+  test-inchon:
+    runs-on: ubuntu-lastest
     steps:
-      - name: echo Hello
-        run: echo "Hello World"
-      - name: multiple line cmd
+      - name: echo python version
         run: |
-          node -v
-          npm -v
-  parallel-job:
-    runs-on: macos-latest
-    steps:
-      - name: show software version
-        run: sw_vers
-  dependant-job:
-    runs-on: windows-latest
-    needs: shell-cmd-job
-    steps:
-      - name: echo a string
-        run: Write-Output "Windows String"
-      - name: Error Step
-        run: doesnotexit
+          python --version
+          pip --version
+
+# name: first-workflow
+# on: [push]
+
+# jobs:
+#   shell-cmd-job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: echo Hello
+#         run: echo "Hello World"
+#       - name: multiple line cmd
+#         run: |
+#           node -v
+#           npm -v
+#   parallel-job:
+#     runs-on: macos-latest
+#     steps:
+#       - name: show software version
+#         run: sw_vers
+#   dependant-job:
+#     runs-on: windows-latest
+#     needs: shell-cmd-job
+#     steps:
+#       - name: echo a string
+#         run: Write-Output "Windows String"
+#       - name: Error Step
+#         run: doesnotexit
